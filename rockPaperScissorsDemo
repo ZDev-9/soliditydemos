@@ -19,20 +19,19 @@ contract rockPaperScissors {
     function pickRock() public returns(string memory){
         ComputerPick();
         playerChoice = 0;
-        return "You picked Rock";
+        return compareChoices(playerChoice, computerChoice);
     }
 
     function pickPaper() public returns(string memory){
         ComputerPick();
         playerChoice = 1;
-        return "You picked Paper";
+        return compareChoices(playerChoice, computerChoice);
     }
 
     function pickScissors() public returns(string memory){
         ComputerPick();
         playerChoice = 2;
-        return "You picked Scissors";
-
+        return compareChoices(playerChoice, computerChoice);
     }
 
 
