@@ -12,19 +12,26 @@ contract rockPaperScissors {
     uint playerChoice;
     uint computerChoice;
 
-    function ComputerPick() view public returns(uint) {
-        uint _test = uint(keccak256(abi.encodePacked(block.timestamp, block.difficulty, msg.sender))) % 3;
-        return _test;
+    function ComputerPick() private {
+        computerChoice = uint(keccak256(abi.encodePacked(block.timestamp, block.difficulty, msg.sender))) % 3;
     }
 
-    function pickRock() public returns(bool){
-
+    function pickRock() public returns(string memory){
+        ComputerPick();
+        playerChoice = 0;
+        return "You picked Rock";
     }
 
-    function pickPaper() public returns(bool){
-
+    function pickPaper() public returns(string memory){
+        ComputerPick();
+        playerChoice = 1;
+        return "You picked Paper";
     }
-    function pickScissors() public returns(bool){
+
+    function pickScissors() public returns(string memory){
+        ComputerPick();
+        playerChoice = 2;
+        return "You picked Scissors";
 
     }
 }
