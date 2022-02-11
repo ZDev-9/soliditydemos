@@ -34,4 +34,19 @@ contract rockPaperScissors {
         return "You picked Scissors";
 
     }
+
+
+    function compareChoices(uint player, uint computer) private pure returns(string memory){
+        if(player == computer){
+            return "It was a draw";
+        } else if(player == 0 && computer == 2){
+            return "You win, rock beats scisors";
+        } else if(player == 1 &&  computer == 0){
+            return "You win, Paper beats rock";
+        } else if (player ==2 && computer == 1 ){
+            return "You win, Scissors beats paper";
+        } else {
+            return "Sorry, you lose";
+        }
+    }
 }
